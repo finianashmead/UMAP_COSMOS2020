@@ -67,7 +67,7 @@ filt_dict = {filt_name[i]:(filt_lambda[i]*1e4,filt_fwhm[i]*1e4,AlambdaDivEBV[i],
 cat0 = table.Table.read(dir_in+'COSMOS2020_{}_R1_v2.2_p3.fits'.format(catversion.upper()),format='fits',hdu=1)
 
 # Create a mask to restrict the analysis to a subset of filters (optional)
-filt_use = ['CFHT_ustar', 'CFHT_u', 'HSC_g', 'HSC_r', 'HSC_i', 'HSC_z', 'HSC_y', 'UVISTA_Y', 'UVISTA_J', 'UVISTA_H', 'UVISTA_Ks', 'IRAC_CH1', 'IRAC_CH2'] #, 'ACS_F814W']
+filt_use = ['CFHT_u', 'HSC_g', 'HSC_r', 'HSC_i', 'HSC_z', 'HSC_y', 'UVISTA_J', 'UVISTA_H', 'UVISTA_Ks', 'IRAC_CH1', 'IRAC_CH2'] #, 'ACS_F814W']
 filt_mask = [i in filt_use for i in filt_name]
 
 whichflag = 'COMBINED'  # you can try HSC, SUPCAM, UVISTA, UDEEP, COMBINED
@@ -212,9 +212,11 @@ photo_corr(cat1,filt_dict,only_filt=filt_use,versions=(catversion,fitversion))
 cat = cat1.copy()  
 
 # optional: keep only the most commonly used columns (total FLUX, error bars, RA, DEC...)
+# THIS IS WHERE I DEFINE WHAT COLUMNS THE FINAL PARQUET FILE WILL HAVE
 cat.keep_columns(['ID','ALPHA_J2000','DELTA_J2000']+
                  [i+'_FLUX' for i in filt_use]+[i+'_FLUXERR' for i in filt_use]+[i+'_MAGERR' for i in filt_use]+ ##F: added last bit
-                 ['lp_zBEST','lp_model','lp_age','lp_dust','lp_Attenuation','lp_zp_2','lp_zq','lp_type']+
+                 ['lp_zBEST','lp_model','lp_age','lp_dust','lp_Attenuation','lp_zp_2','lp_zq','lp_type', 'lp_sSFR_best']+
+                 ['FLAG_COMBINED', 'lp_NbFilt']+
                  ['lp_MNUV','lp_MR','lp_MJ','lp_mass_med','lp_mass_med_min68','lp_mass_med_max68','lp_SFR_med','lp_mass_best'])
 
 # optional: magnitudes in AB system
@@ -234,24 +236,23 @@ color_cat = cat.copy()
 
 ## FOR NOW; USING COLORS RECOMMENDED BY JEFF; OTHERS COMMENTED OUT
 #color_cat['ustar-u'] = color_cat['CFHT_ustar_MAG'] - color_cat['CFHT_u_MAG']
-color_cat['u_star-g'] = color_cat['CFHT_ustar_MAG'] - color_cat['HSC_g_MAG']
+color_cat['u-g'] = color_cat['CFHT_u_MAG'] - color_cat['HSC_g_MAG']
 color_cat['g-r'] = color_cat['HSC_g_MAG'] - color_cat['HSC_r_MAG']
 color_cat['r-i'] = color_cat['HSC_r_MAG'] - color_cat['HSC_i_MAG']
 
 color_cat['i-z'] = color_cat['HSC_i_MAG'] - color_cat['HSC_z_MAG']
-color_cat['i-y'] = color_cat['HSC_i_MAG'] - color_cat['HSC_y_MAG']
+#color_cat['i-y'] = color_cat['HSC_i_MAG'] - color_cat['HSC_y_MAG']
 #color_cat['i-Y'] = color_cat['HSC_i_MAG'] - color_cat['UVISTA_Y_MAG']
-color_cat['i-J'] = color_cat['HSC_i_MAG'] - color_cat['UVISTA_J_MAG']
-color_cat['i-H'] = color_cat['HSC_i_MAG'] - color_cat['UVISTA_H_MAG']
-color_cat['i-Ks'] = color_cat['HSC_i_MAG'] - color_cat['UVISTA_Ks_MAG']
-color_cat['i-IRAC_CH1'] = color_cat['HSC_i_MAG'] - color_cat['IRAC_CH1_MAG']
-color_cat['i-IRAC_CH2'] = color_cat['HSC_i_MAG'] - color_cat['IRAC_CH2_MAG']
+#color_cat['i-J'] = color_cat['HSC_i_MAG'] - color_cat['UVISTA_J_MAG']
+#color_cat['i-H'] = color_cat['HSC_i_MAG'] - color_cat['UVISTA_H_MAG']
+#color_cat['i-Ks'] = color_cat['HSC_i_MAG'] - color_cat['UVISTA_Ks_MAG']
+#color_cat['i-IRAC_CH1'] = color_cat['HSC_i_MAG'] - color_cat['IRAC_CH1_MAG']
+#color_cat['i-IRAC_CH2'] = color_cat['HSC_i_MAG'] - color_cat['IRAC_CH2_MAG']
 
-#color_cat['z-y'] = color_cat['HSC_z_MAG'] - color_cat['HSC_z_MAG']
-#color_cat['y-Y'] = color_cat['HSC_y_MAG'] - color_cat['UVISTA_Y_MAG']
+color_cat['z-y'] = color_cat['HSC_z_MAG'] - color_cat['HSC_y_MAG']
+color_cat['y-J'] = color_cat['HSC_y_MAG'] - color_cat['UVISTA_J_MAG']
 #color_cat['Y-J'] = color_cat['UVISTA_Y_MAG'] - color_cat['UVISTA_J_MAG']
-#color_cat['J-H'] = color_cat['UVISTA_J_MAG'] - color_cat['UVISTA_H_MAG']
-#color_cat['H-Ks'] = color_cat['UVISTA_H_MAG'] - color_cat['UVISTA_Ks_MAG']
+color_cat['J-H'] = color_cat['UVISTA_J_MAG'] - color_cat['UVISTA_H_MAG']
 
 ## convert to pandas 
 df = color_cat.to_pandas()
