@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "Optimizing Photometric Redshift Training Sets I: Efficient Compression of the Galaxy Color-Redshift Relation with UMAP" 
 message: "If you use this software, please cite the associated paper." 
 type: software 
-version: "v1.0.0" 
+version: v1.0.7 
 license: CC0
 authors: 
   - family-names: Ashmead 
