@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "Optimizing Photometric Redshift Training Sets I: Efficient Compression of the Galaxy Color-Redshift Relation with UMAP" 
 message: "If you use this software, please cite the associated paper." 
 type: software 
-version: v1.0.7 
+version: v1.0.0 
 license: CC0
 authors: 
   - family-names: Ashmead 
@@ -23,3 +23,27 @@ authors:
     affiliation: 
       - Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA 15260, USA 
       - Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC), University of Pittsburgh, Pittsburgh, PA 15260, USA 
+  - family-names: Bezanson 
+    given-names: Rachel 
+    orcid: "https://orcid.org/0000-0001-5063-8254" 
+    affiliation: 
+      - Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA 15260, USA 
+      - Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC), University of Pittsburgh, Pittsburgh, PA 15260, USA 
+  - family-names: Dey 
+    given-names: Biprateep 
+    orcid: "https://orcid.org/0000-0002-5665-7912" 
+    affiliation: 
+      - Department of Statistical Sciences, University of Toronto, Toronto, ON M5G 1Z5, Canada 
+      - Canadian Institute for Theoretical Astrophysics (CITA), University of Toronto, Toronto, ON M5S 3H8, Canada 
+      - Dunlap Institute for Astronomy & Astrophysics, University of Toronto, Toronto, ON M5S 3H4, Canada 
+      - Vector Institute, Toronto, ON M5G 0C6, Canada 
+  - family-names: Masters 
+    given-names: Daniel C. 
+    orcid: "https://orcid.org/0000-0001-5382-6138" 
+    affiliation: 
+      - Caltech/IPAC, 1200 E. California Blvd. Pasadena, CA 91125, USA 
+  - family-names: Stanford 
+    given-names: S.A. 
+    orcid: "https://orcid.org/0000-0003-0122-0841" 
+    affiliation: 
+      - Physics and Astronomy Department, University of California Davis, CA 95616
