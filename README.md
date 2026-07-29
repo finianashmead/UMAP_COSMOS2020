@@ -7,4 +7,4 @@ process_COSMOS.py was used in the initial data processing (dust correction, etc.
 
 The files COSMOS2020_processed_260724.parquet and speczCL95_processed_260724.parquet contain fully processed data, encompassing the processing performed in process_COSMOS.py in addition to the cuts on the data and crossmatching described in Section 2 of our paper. The original versions of the COSMOS2020 catalog and COSMOS Spectroscopic Redshift Compilation catalog were downloaded from https://irsa.ipac.caltech.edu/data/COSMOS/tables/cosmos2020/ and https://github.com/cosmosastro/speczcompilation/tree/main/specz_compilation, respectively.
 
-umapz.py and paper_example_notebook.ipynb correspond to the original version of this paper submitted to ApJ and available on arxiv at https://arxiv.org/abs/2512.09032
+umapz.py and paper_example_notebook.ipynb correspond to the original pre-print version of the paper available on arxiv at https://arxiv.org/abs/2512.09032
