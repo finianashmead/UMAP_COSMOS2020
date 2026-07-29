@@ -3,7 +3,7 @@ title: "Optimizing Photometric Redshift Training Sets I: Efficient Compression o
 message: "If you use this software, please cite the associated paper." 
 type: software 
 version: "v1.0.0" 
-license: CC0
+license: CCO
 authors: 
   - family-names: Ashmead 
     given-names: Finian 
@@ -47,4 +47,3 @@ authors:
     orcid: "https://orcid.org/0000-0003-0122-0841" 
     affiliation: 
       - Physics and Astronomy Department, University of California Davis, CA 95616
-
