@@ -1,7 +1,10 @@
 # umapz: functions for using UMAP (or SOM) dimensionality reduced 
 # color space to interpolate redshifts, and to test the 
 # quality of these mappings and interpolations
-
+import sys
+#print('x')
+#print(sys.executable)
+#print('x')
 import numpy as np
 from matplotlib import pyplot as plt 
 from matplotlib.ticker import MaxNLocator
@@ -25,8 +28,8 @@ import astropy.units as u
 import os
 from matplotlib.cm import get_cmap
 from mpl_toolkits.mplot3d import Axes3D
-import seaborn as sns
-sns.set(style='white', rc={'figure.figsize':(14, 12), 'animation.html': 'html5'})
+#import seaborn as sns
+#sns.set(style='white', rc={'figure.figsize':(14, 12), 'animation.html': 'html5'})
 import colorcet as cc
 import subprocess
 import copy
