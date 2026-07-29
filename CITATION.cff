@@ -1,11 +1,25 @@
-cff-version: 1.2.0
-title: "UMAP_COSMOS2020"
-message: "If you use this software, please cite this work."
-type: software
-version: "v1.0.1"
-
-authors:
-  - family-names: Ashmead
-    given-names: Finian
-
-repository-code: "https://github.com/finianashmead/UMAP_COSMOS2020"
+cff-version: 1.2.0 
+title: "Optimizing Photometric Redshift Training Sets I: Efficient Compression of the Galaxy Color–Redshift Relation with UMAP" 
+message: "If you use this software, please cite the associated paper." 
+type: software 
+version: "v1.0.0" 
+license: CCO
+authors: 
+  - family-names: Ashmead 
+    given-names: Finian 
+    orcid: "https://orcid.org/0000-0001-9416-5874" 
+    affiliation: 
+      - Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA 15260, USA 
+      - Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC), University of Pittsburgh, Pittsburgh, PA 15260, USA 
+  - family-names: Newman 
+    given-names: Jeffrey A. 
+    orcid: "https://orcid.org/0000-0001-8684-2222" 
+    affiliation: 
+      - Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA 15260, USA 
+      - Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC), University of Pittsburgh, Pittsburgh, PA 15260, USA 
+  - family-names: Andrews 
+    given-names: Brett H. 
+    orcid: "https://orcid.org/0000-0001-8085-5890" 
+    affiliation: 
+      - Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA 15260, USA 
+      - Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC), University of Pittsburgh, Pittsburgh, PA 15260, USA
